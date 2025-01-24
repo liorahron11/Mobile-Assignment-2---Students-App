@@ -11,13 +11,17 @@ class StudentDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student_details)
 
-        findViewById<TextView>(R.id.nameView).text = "name"
-        findViewById<TextView>(R.id.idView).text = "id"
-        findViewById<TextView>(R.id.phoneView).text = "phone"
-        findViewById<TextView>(R.id.addressView).text = "address"
+        val index = intent.getIntExtra("index", -1)
+        val student = StudentsRepository.getStudent(index)
+
+        findViewById<TextView>(R.id.nameView).text = student.name
+        findViewById<TextView>(R.id.idView).text = student.id
+        findViewById<TextView>(R.id.phoneView).text = student.phone
+        findViewById<TextView>(R.id.addressView).text = student.address
 
         findViewById<Button>(R.id.editButton).setOnClickListener {
             val intent = Intent(this, EditStudentActivity::class.java)
+            intent.putExtra("index", index)
             startActivity(intent)
             finish()
         }
