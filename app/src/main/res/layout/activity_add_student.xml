@@ -10,7 +10,8 @@
         android:id="@+id/nameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Name" />
+        android:hint="Enter Name"
+        android:inputType="text"/>
 
     <EditText
         android:id="@+id/idInput"
@@ -31,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Address"
-        android:inputType="number" />
+        android:inputType="text" />
 
     <Button
         android:id="@+id/saveButton"
